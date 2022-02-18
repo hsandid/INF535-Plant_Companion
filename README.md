@@ -16,3 +16,6 @@
 - Battery Powered: The Plant Companion runs on a battery. Battery level is not tracked, but if the main server receives no updates for a period, a warning is issued.
 - Plant-Dependent Parameters: Each plant type has different needs when it comes to soil humidity and soil temperature. The user must specify which type of plant is attached to his Plant Companion at activation so that proper decisions can be taken. (For our prototype, only three generic plant types will be provided).
 - LCD Display: Our Plant Companion comes with an LCD display attached to show the most recent measurements. The LCD display is off by default to save power, but can be enabled temporarily by pressing a button
+
+## In-Discussion Features
+- Determining Plant Health through Leaf color : We'd like to estimate Plant Health directly by looking at the color of a leaf on the plant. For our simple prototype, we would take three preset color profile (i.e. Plant A has green leaves when healthy, and other colors when unhealthy. Plant B, Plant C...). A message is sent to users when an issue is detected.
