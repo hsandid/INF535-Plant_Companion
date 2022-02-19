@@ -1,6 +1,7 @@
 # INF535 - Plant Companion
 
 - Group Members : Chinonso Stanislaus Ngwu, Hadi Rayan Al-Sandid
+- Front-End uses the 'startbootstrap-sb-admin-2' designed by David Miller. The original Github repository is available [here](https://github.com/startbootstrap/startbootstrap-sb-admin-2).
 
 ## Description:
 - The Plant Companion is an Arduino-based system that uses sensors to collect data relevant to maintaining a plant & irrigates the plant when necessary to do so. Data about soil humidity, soil temperature, and light intensity is collected by the sensors.
