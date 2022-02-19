@@ -41,8 +41,8 @@
 
 ```mermaid
 stateDiagram
-    LandingPage --> Login
-    LandingPage --> SignUp
+    "LandingPage" --> "Login"
+    "LandingPage" --> SignUp
     Login --> Dashboard
     SignUp --> Dashboard
     Dashboard --> ListRegisteredPlants
