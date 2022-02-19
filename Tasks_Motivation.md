@@ -7,6 +7,10 @@
 - (3) Motivation on "Why ESP and not Arduino ?"
   - Arduino doesn't support Wi-Fi, so we are going with ESP
   - Has cached memory : When turned off / reset it can keep some kind of state.
+- (4) The ATmega328P datasheet can be found [here](https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf)
+- (5) Questions to address :
+  - Why didn't we use MQTT ?
+  - Why did we go for Wi-Fi, rather than other technologies (Bluetooth, LPWAN..) ?
 
 ## (ESP) Main Routine & Data Collection
 
@@ -20,6 +24,7 @@
 - (6) Collect color data on a specific leaf using a color sensor.
 - (7) Button-Activated LCD, which displays local values for 5 seconds (-> can be configured).
 - (8) Simulate water pump/actuator using an LED. It will activate when the right parameters are present (Soil Moisture). It will stay on for the simulated duration of irrigation (5 seconds).
+- (9) System is battery-connected. Experiment with connecting sensors to a battery-powered system, and see what load it can take, or how to split the load.
 
 ## (ESP) Communication
 
@@ -41,8 +46,8 @@
 
 ```mermaid
 stateDiagram
-    "LandingPage" --> "Login"
-    "LandingPage" --> SignUp
+    LandingPage --> Login
+    LandingPage --> SignUp
     Login --> Dashboard
     SignUp --> Dashboard
     Dashboard --> ListRegisteredPlants
