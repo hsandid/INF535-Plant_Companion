@@ -3,7 +3,7 @@
 
 #include <ArduinoJson.h>    //https://github.com/bblanchon/ArduinoJson
 #include <ESP8266WiFi.h>
-#include <ESP8266HTTPClient.h>
+#include <ESP8266HTTPClient.h> //https://github.com/esp8266/Arduino/tree/master/libraries/ESP8266HTTPClient
 
 
 const char* ssid     = "Scan";
