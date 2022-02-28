@@ -1,0 +1,95 @@
+{
+  "main": {
+    "id": "24b106d645c996d7",
+    "type": "split",
+    "children": [
+      {
+        "id": "812ccf1afbc67d41",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Tasks_Motivation.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "085e37df89d12535",
+    "type": "split",
+    "children": [
+      {
+        "id": "52b4b95d2587f003",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a288d714ed278cd5",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "2b011a7e5e3d1464",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "b5ccb34326672751",
+    "type": "split",
+    "children": [
+      {
+        "id": "c946da5c7cf1c5e3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ec00150c275f31fc",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Tasks_Motivation.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "812ccf1afbc67d41",
+  "lastOpenFiles": [
+    "Tasks_Motivation.md",
+    "Sketches_Overview.md",
+    "README.md"
+  ]
+}
