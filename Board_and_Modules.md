@@ -36,7 +36,7 @@
 | Color Sensor GY-31TCS230     | Control Pin S0 (Digital Output), Control Pin S1 (Digital Output), Control Pin S2 (Digital Output), Control Pin S3 (Digital Output), Out (Digital Input), VDD, VCC :heavy_check_mark: |
 | LCD Module                   | SDA (I2C SDA); SCL (I2C SCL), VDD, VCC :heavy_check_mark: |
 | LED (Watering Pump Signal) | (Digital Output):heavy_check_mark: |
-| LED Indicator | (Digital Output) :x: |
+| LED Indicator | (Digital Output) :heavy_check_mark: |
 | Button for LCD | (Digital Input):heavy_check_mark: |
 
 ## ESP8622 Pins / Module Usage
@@ -56,7 +56,7 @@
 | D3        | **GPIO0**  | pulled up                          | OK                                 | connected to FLASH button, boot fails if pulled LOW (Board goes into bootloader mode instead) | Moisture Sensor D0                            |
 | D4        | **GPIO2**  | pulled up                          | OK                                 | HIGH at boot; connected to on-board LED, boot fails if pulled LOW | Color Sensor Control Pin S0                    |
 | D5        | **GPIO14** | OK                                 | OK                                 | SPI (SCLK)                                                   | Color Sensor Control Pin S1                 |
-| D6        | **GPIO12** | OK                                 | OK                                 | SPI (MISO)                                                   |                 |
+| D6        | **GPIO12** | OK                                 | OK                                 | SPI (MISO)                                                   | LED Indicator                 |
 | D7        | **GPIO13** | OK                                 | OK                                 | SPI (MOSI)                                                   | Color Sensor Out                              |
 | D8        | **GPIO15** | pulled to GND                      | OK (unexpected behaviour possible) | SPI (CS); Boot fails if pulled HIGH                          | DHT11 Signal Pin                              |
 | RX        | **GPIO3**  | OK (unexpected behaviour possible) | RX PIN (AVOID USING)               | HIGH at boot                                                 | Button for LCD                                |
