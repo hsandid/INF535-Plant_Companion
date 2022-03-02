@@ -1,5 +1,6 @@
 - Storing data into the ESP memory.
   - https://arduino-esp8266.readthedocs.io/en/latest/libraries.html#eeprom
+- Low power modes for sensors
 
 - Duty Cycling
   - Implementing a manual watchdog : https://www.youtube.com/watch?v=D_7ciW_TCac
