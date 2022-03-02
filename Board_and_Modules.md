@@ -3,6 +3,7 @@
 - Low power modes for sensors
 - Use color sensor for Green color only (hardwire certain pins)
 - Verify voltages required by each pins
+- Battery-powering the NodeMCU
 
 - Duty Cycling
   - Implementing a manual watchdog : https://www.youtube.com/watch?v=D_7ciW_TCac
