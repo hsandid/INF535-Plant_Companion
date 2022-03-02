@@ -48,7 +48,7 @@
 - Software PWM : **GPIO0 to GPIO15**
 - Interrupts : **All GPIO pins**, with the exception of **GPIO16**, support interrupts
 - **GPIO6 to GPIO11** are connected to the flash chip, so they are not recommended for use.
-- If 2% frequency scaling doesn't work on the Color sensor, then we just forego one of the LEDs.
+- If 2% frequency scaling doesn't work on the Color sensor, then we just forego one of the LEDs (UPDATE : Fixed by setting some control pins in the color sensor to always be connected to VDD).
 
 | Pin Label | GPIO       | Input                              | Output                             | Notes                                                        | Associated Module Pin                         |
 | --------- | ---------- | ---------------------------------- | ---------------------------------- | ------------------------------------------------------------ | --------------------------------------------- |
