@@ -1,7 +1,8 @@
 - Storing data into the ESP memory.
   - https://arduino-esp8266.readthedocs.io/en/latest/libraries.html#eeprom
 - Low power modes for sensors
-- Use color sensor for Green color only (hardwire certain pins).
+- Use color sensor for Green color only (hardwire certain pins)
+- Verify voltages required by each pins
 
 - Duty Cycling
   - Implementing a manual watchdog : https://www.youtube.com/watch?v=D_7ciW_TCac
