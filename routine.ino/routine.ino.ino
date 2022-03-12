@@ -10,11 +10,11 @@
 #define SSID_FILE "ssd.txt"
 #define PASSWORD_FILE "password.txt"
 #define STATUS_FILE "status.txt"
-#define PLANT_TYPE_FILE "plant.txt"
+#define MOISTURE_THRESHOLD_FILE "threshold.txt"
 #define DEFAULT_SSID "Scan"
 #define DEFAULT_PASSWORD "fZ845(09"
 #define DEFAULT_PLANT_STAUS "0"
-#define DEFAULT_PLANT_TYPE "0"
+#define DEFAULT_MOISTURE_THRESHOLD "50"
 
 String manualPump = "0";  //To pump water manually 1 == Pump, 0 == do not pump
 
@@ -24,19 +24,19 @@ const String PLANT_ID =  "COMPANION-000001";
 const char* ssid     = "Scan";
 const char* password = "fZ845(09";
 String status;
-String plantType;
+String moistureThreshold;
 
 //Store received values from DB as Strings here
 String receivedSsid = "";
 String receivedPassword = "";
 String receivedStatus = "";
-String receivedPlantType = "";
+String receivedMoistureThreshold = "";
 
 //Store received values from DB as Strings here
 String storedSsid = "";
 String storedPassword = "";
 String storedStatus = "";
-String storedPlantType = "";
+String storedMoistureThreshold = "";
 
 //Use dummy values for sensors, actual values to be provided by Hadi
 float temperature = random(0, 100);;
@@ -79,7 +79,7 @@ void setup() {
 #endif
 
   storedStatus = getStatus();
-  storedPlantType = getPlantType();
+  storedMoistureThreshold = getMoistureThreshold();
 
   if (storedSsid == "" || storedPassword == "" || storedSsid == "null" || storedPassword == "null") {
     ssid = DEFAULT_SSID;
@@ -95,10 +95,10 @@ void setup() {
     status = storedStatus;
   }
 
-  if (storedPlantType == "") {
-    plantType = DEFAULT_PLANT_TYPE;
+  if (moistureThreshold == "") {
+    moistureThreshold = DEFAULT_MOISTURE_THRESHOLD;
   } else {
-    plantType = storedPlantType;
+    moistureThreshold = storedMoistureThreshold;
   }
   if (status == "0") {
     activated = false;
@@ -112,20 +112,6 @@ void setup() {
   Serial.println("Booted...");
 #endif
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void loop() {
   if (!activated) {
     /*Add code to run when system is not yet activated*/
@@ -150,23 +136,7 @@ void loop() {
   reconnectWifi();
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*Write data into file*/
+*Write data into file*/
 void writeFile(fs::FS &fs, const char * path, const char * message) {
 
 #ifdef DEBUG
@@ -230,8 +200,8 @@ String getStatus() {
   return readFile(SPIFFS, STATUS_FILE);
 }
 
-String getPlantType() {
-  return readFile(SPIFFS, PLANT_TYPE_FILE);
+String getMoistureThreshold() {
+  return readFile(SPIFFS, MOISTURE_THRESHOLD_FILE);
 }
 
 void setSsid(const char * ssid) {
@@ -246,8 +216,8 @@ void setStatus(const char * status) {
   writeFile(SPIFFS, STATUS_FILE, status);
 }
 
-void setPlantType(const char * plantType) {
-  writeFile(SPIFFS, PLANT_TYPE_FILE, plantType);
+void setMoistureThreshold(const char * moisture) {
+  writeFile(SPIFFS, MOISTURE_THRESHOLD_FILE, moisture);
 }
 
 void reconnectWifi() {
@@ -313,7 +283,7 @@ void getSystemUpdate() {
     receivedStatus = doc["status"].as<String>();
     receivedSsid = doc["ssid"].as<String>();
     receivedPassword = doc["password"].as<String>();
-    receivedPlantType = doc["plant_type"].as<String>();
+    receivedMoistureThreshold = doc["moisture_threshold"].as<String>();
     manualPump = doc["manual_pump"].as<String>();
 
     if (receivedStatus != storedStatus) {
@@ -326,15 +296,15 @@ void getSystemUpdate() {
       setPassword(receivedPassword.c_str());
     }
 
-    if (receivedPlantType != storedPlantType) {
-      setPlantType(receivedPlantType.c_str());
+    if (receivedMoistureThreshold != storedMoistureThreshold) {
+      setMoistureThreshold(receivedMoistureThreshold.c_str());
     }
 
 #ifdef DEBUG
-    Serial.println(String("Received SSID: " + receivedSsid + " Received Password: " + receivedPassword + " Received Status: " + receivedStatus + " Received Plant Type: " + receivedPlantType));
+    Serial.println(String("Received SSID: " + receivedSsid + " Received Password: " + receivedPassword + " Received Status: " + receivedStatus + " Received Moisture Threshold: " + receivedMoistureThreshold));
 #endif
 
-    if (receivedStatus != storedStatus || receivedSsid != storedSsid  || receivedPassword != storedPassword || receivedPlantType != storedPlantType) {
+    if (receivedStatus != storedStatus || receivedSsid != storedSsid  || receivedPassword != storedPassword || receivedMoistureThreshold != storedMoistureThreshold) {
 
       ESP.restart(); //ESP.reset();
 
