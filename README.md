@@ -6,15 +6,40 @@
 - The Plant Companion is an Arduino-based system that uses sensors to collect data relevant to maintaining a plant & irrigates the plant when necessary to do so. Data about soil humidity, soil temperature, and light intensity is collected by the sensors.
 - This data will be used to (1) automatically water the plant if needed, with a local water pump; (2) warn users of any abnormality in environment which could affect the plant
 
+## Activation Process for the Plant Companion
 
-## Target Features:
-- Energy-Efficient: The Plant Companion implements Watchdog-based Duty Cycling, so that it performs its measurements & contacts a main server periodically, before going into sleep mode to conserve energy.
-- Server Connection: The Plant companion will connect to the internet using an LPWAN technology (LoRa, Zigbee...), and communicate with a main server. It will send upstream sensor data and receive downstream configuration data. Users can access information on the status of their plants through a web portal.
-- Soil Humidity Control: The Plant Companion will detect if soil humidity becomes unfavorable. In this case, it will attempt to irrigate the plant automatically by activating a water pump.
-- Alert System: If environmental factors become very unfavorable (high temperature, soil humidity is not rectifiable, low light intensity), a warning message will be sent to the server.
-- Battery Powered: The Plant Companion runs on a battery. Battery level is not tracked, but if the main server receives no updates for a period, a warning is issued.
-- Plant-Dependent Parameters: Each plant type has different needs when it comes to soil humidity and soil temperature. The user must specify which type of plant is attached to his Plant Companion at activation so that proper decisions can be taken. (For our prototype, only three generic plant types will be provided).
-- LCD Display: Our Plant Companion comes with an LCD display attached to show the most recent measurements. The LCD display is off by default to save power, but can be enabled temporarily by pressing a button
+- When the device is powered on for the first time, the ESP sends a HTTP request to the server to retrieve configuration information.
 
-## In-Discussion Features
-- Determining Plant Health through Leaf color : We'd like to estimate Plant Health directly by looking at the color of a leaf on the plant. For our simple prototype, we would take three preset color profile (i.e. Plant A has green leaves when healthy, and other colors when unhealthy. Plant B, Plant C...). A message is sent to users when an issue is detected.
+- The server replies with a json file containing all the configuration parameters such as Activation status, Moisture Level Threshold and Manual Pump Status and Wi-Fi Credentials.
+
+- This JSON file is decoded by the ESP and saved inside a file locally on the ESP after which it restarts with the newly saved configuration parameters.
+
+- The ESP keeps checks for this configuration periodically and updates the files accordinly. (This can be likened to software updates where the system is usually restarted after the new updates to pick up the new configuration)
+
+## Sending Data
+- When readings are taken from the sensors, it is encoded in a request string and sent to the server via a HTTP POST request, the server processes this request and saves them to the DB.
+
+## Loading Configuration Data
+- The configuration data includes;
+1. Wi-Fi SSID
+2. Wi-Fi Password
+3. Device Status: 1(Activated), 0(Not Activated)
+4. Minimum Soil Mositure
+- The configurations from the server are saved to a files permanently on the ESP file system and is loaded during the setup process of the controller.
+
+## How to run the server
+
+- Download the server files
+
+- Install XAMP
+
+- Start Apache and MySQL from the XAMP control panel
+
+- Copy project documents and paste inside the htdocs folder in your XAMP directory <C:\xampp\htdocs> 
+
+- Open your browser and navigate to http://localhost/phpmyadmin
+- Create a database plant_companion, click on import and select the DB.sql file from the downloaded server files  to import your DB files
+
+- Open your browser and navigate to http://localhost/ or http://localhost/the_folder_pasted_the_server_files
+
+- Your website should be running with no issues
