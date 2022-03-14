@@ -2,6 +2,8 @@
 
 - Group Members : Chinonso Stanislaus Ngwu, Hadi Rayan Al-Sandid
 
+- The code for the Plant Companion is in the "Controller/" folder; the code fo the web-server is under the "server files/" folder.
+
 ## Description:
 - The Plant Companion is an Arduino-based system that uses sensors to collect data relevant to maintaining a plant & irrigates the plant when necessary to do so. Data about soil humidity, soil temperature, and light intensity is collected by the sensors.
 - This data will be used to (1) automatically water the plant if needed, with a local water pump; (2) warn users of any abnormality in environment which could affect the plant
