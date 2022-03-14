@@ -6,7 +6,6 @@
 - The Plant Companion is an Arduino-based system that uses sensors to collect data relevant to maintaining a plant & irrigates the plant when necessary to do so. Data about soil humidity, soil temperature, and light intensity is collected by the sensors.
 - This data will be used to (1) automatically water the plant if needed, with a local water pump; (2) warn users of any abnormality in environment which could affect the plant
 
-![diagram](docs/img/diagram.png)
 
 ## Target Features:
 - Energy-Efficient: The Plant Companion implements Watchdog-based Duty Cycling, so that it performs its measurements & contacts a main server periodically, before going into sleep mode to conserve energy.
